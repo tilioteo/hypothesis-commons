@@ -2,8 +2,8 @@ package org.hypothesis.builders;
 
 import org.hypothesis.evaluation.ExpressionImpl;
 import org.hypothesis.interfaces.evaluable.Evaluable;
-import org.hypothesis.interfaces.variable.HasVariables;
 import org.hypothesis.interfaces.variable.Variable;
+import org.hypothesis.interfaces.variable.WithVariables;
 
 import javax.annotation.Nonnull;
 import java.util.ArrayList;
@@ -12,12 +12,12 @@ import java.util.Map;
 
 class IfImpl implements Evaluable {
 
-    private final HasVariables variables;
+    private final WithVariables variables;
     private final ExpressionImpl expression;
     private final List<Evaluable> trueBlock = new ArrayList<>();
     private final List<Evaluable> falseBlock = new ArrayList<>();
 
-    public IfImpl(HasVariables variables, ExpressionImpl expression) {
+    public IfImpl(WithVariables variables, ExpressionImpl expression) {
         this.variables = variables;
         this.expression = expression;
     }

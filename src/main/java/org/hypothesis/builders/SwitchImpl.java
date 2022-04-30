@@ -3,8 +3,8 @@ package org.hypothesis.builders;
 import com.tilioteo.expressions.ExpressionFactory;
 import org.hypothesis.evaluation.ExpressionImpl;
 import org.hypothesis.interfaces.evaluable.Evaluable;
-import org.hypothesis.interfaces.variable.HasVariables;
 import org.hypothesis.interfaces.variable.Variable;
+import org.hypothesis.interfaces.variable.WithVariables;
 
 import javax.annotation.Nonnull;
 import java.util.ArrayList;
@@ -14,22 +14,18 @@ import java.util.Map;
 
 class SwitchImpl implements Evaluable {
 
-    private final HasVariables variables;
+    private final WithVariables variables;
     private final ExpressionImpl expression;
 
     private final Map<String, List<Evaluable>> caseMap = new HashMap<>();
 
-    public SwitchImpl(HasVariables variables, ExpressionImpl expression) {
+    public SwitchImpl(WithVariables variables, ExpressionImpl expression) {
         this.variables = variables;
         this.expression = expression;
     }
 
     public void addCaseEvaluable(String caseValue, Evaluable evaluable) {
-        List<Evaluable> evaluables = caseMap.get(caseValue);
-        if (evaluables == null) {
-            evaluables = new ArrayList<>();
-            caseMap.put(caseValue, evaluables);
-        }
+        List<Evaluable> evaluables = caseMap.computeIfAbsent(caseValue, k -> new ArrayList<>());
 
         evaluables.add(evaluable);
     }

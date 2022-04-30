@@ -1,7 +1,7 @@
 package org.hypothesis.builders;
 
 import org.hypothesis.interfaces.action.Action;
-import org.hypothesis.interfaces.action.HasActions;
+import org.hypothesis.interfaces.action.WithActions;
 import org.hypothesis.interfaces.evaluable.Evaluable;
 import org.hypothesis.interfaces.variable.Variable;
 
@@ -11,18 +11,18 @@ import java.util.Optional;
 
 class CallImpl implements Evaluable {
 
-    private final HasActions hasActions;
+    private final WithActions withActions;
     private final String actionId;
 
-    public CallImpl(HasActions hasActions, String actionId) {
-        this.hasActions = hasActions;
+    public CallImpl(WithActions withActions, String actionId) {
+        this.withActions = withActions;
         this.actionId = actionId;
     }
 
     @Override
     public void evaluate() {
-        Optional.ofNullable(hasActions)
-                .map(HasActions::getActions)
+        Optional.ofNullable(withActions)
+                .map(WithActions::getActions)
                 .map(actions -> actions.get(actionId))
                 .ifPresent(Action::execute);
     }

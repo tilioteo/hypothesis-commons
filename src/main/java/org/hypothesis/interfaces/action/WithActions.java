@@ -4,7 +4,7 @@ import javax.annotation.Nonnull;
 import java.io.Serializable;
 import java.util.Map;
 
-public interface HasActions extends Serializable {
+public interface WithActions extends Serializable {
 
     @Nonnull
     Map<String, Action> getActions();

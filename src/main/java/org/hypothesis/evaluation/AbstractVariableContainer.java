@@ -1,29 +1,29 @@
 package org.hypothesis.evaluation;
 
 
-import org.hypothesis.interfaces.variable.HasVariables;
 import org.hypothesis.interfaces.variable.Variable;
+import org.hypothesis.interfaces.variable.WithVariables;
 
 import javax.annotation.Nonnull;
 import java.util.Map;
 
 import static java.util.Collections.emptyMap;
 
-public abstract class AbstractVariableContainer implements HasVariables {
+public abstract class AbstractVariableContainer implements WithVariables {
 
-    private HasVariables hasVariables;
+    private WithVariables withVariables;
 
-    protected AbstractVariableContainer(HasVariables hasVariables) {
-        this.hasVariables = hasVariables;
+    protected AbstractVariableContainer(WithVariables withVariables) {
+        this.withVariables = withVariables;
     }
 
     @Nonnull
     @Override
     public Map<String, Variable<?>> getVariables() {
-        return hasVariables != null ? hasVariables.getVariables() : emptyMap();
+        return withVariables != null ? withVariables.getVariables() : emptyMap();
     }
 
-    protected void setHasVariables(HasVariables hasVariables) {
-        this.hasVariables = hasVariables;
+    protected void setHasVariables(WithVariables withVariables) {
+        this.withVariables = withVariables;
     }
 }

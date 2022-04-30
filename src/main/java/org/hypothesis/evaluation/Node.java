@@ -1,8 +1,8 @@
 package org.hypothesis.evaluation;
 
 import org.hypothesis.interfaces.evaluable.Evaluable;
-import org.hypothesis.interfaces.variable.HasVariables;
 import org.hypothesis.interfaces.variable.Variable;
+import org.hypothesis.interfaces.variable.WithVariables;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ public class Node extends AbstractVariableContainer implements Serializable {
     private int nextIndex = -1;
     private boolean breakExecution = false;
 
-    public Node(HasVariables variables, long slideId) {
+    public Node(WithVariables variables, long slideId) {
         super(variables);
         this.slideId = slideId;
     }

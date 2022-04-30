@@ -1,5 +1,6 @@
 package org.hypothesis.utils;
 
+import org.hypothesis.exception.NonInstantiableClassException;
 import org.hypothesis.interfaces.dom.Element;
 
 import javax.annotation.Nonnull;
@@ -13,6 +14,10 @@ import static java.util.stream.Collectors.toMap;
 import static org.hypothesis.interfaces.dom.Constants.*;
 
 public class DomUtils {
+
+    private DomUtils() {
+        throw new NonInstantiableClassException(this.getClass());
+    }
 
     private static boolean isNotBlank(String s) {
         return s != null && !s.trim().isEmpty();

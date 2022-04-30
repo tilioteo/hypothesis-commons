@@ -3,8 +3,8 @@ package org.hypothesis.builders;
 import org.hypothesis.evaluation.AbstractBaseAction;
 import org.hypothesis.interfaces.evaluable.Evaluable;
 import org.hypothesis.interfaces.variable.ExchangeVariable;
-import org.hypothesis.interfaces.variable.HasVariables;
 import org.hypothesis.interfaces.variable.Variable;
+import org.hypothesis.interfaces.variable.WithVariables;
 
 import javax.annotation.Nonnull;
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ public class ActionImpl extends AbstractBaseAction {
     private final Map<Integer, ExchangeVariable> scores = new HashMap<>();
     private final List<Evaluable> evaluables = new ArrayList<>();
 
-    public ActionImpl(HasVariables variables, String id) {
+    public ActionImpl(WithVariables variables, String id) {
         super(variables, id);
     }
 

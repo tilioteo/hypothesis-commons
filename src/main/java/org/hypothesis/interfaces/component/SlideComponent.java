@@ -5,7 +5,7 @@ import com.vaadin.ui.Component;
 
 import javax.annotation.Nonnull;
 
-public interface SlideComponent extends HasComponent {
+public interface SlideComponent extends WithComponent {
 
     @Nonnull
     static SlideComponent slideComponent(@Nonnull Component component, @Nonnull Alignment alignment) {

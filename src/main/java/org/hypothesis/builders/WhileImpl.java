@@ -2,8 +2,8 @@ package org.hypothesis.builders;
 
 import org.hypothesis.evaluation.ExpressionImpl;
 import org.hypothesis.interfaces.evaluable.Evaluable;
-import org.hypothesis.interfaces.variable.HasVariables;
 import org.hypothesis.interfaces.variable.Variable;
+import org.hypothesis.interfaces.variable.WithVariables;
 
 import javax.annotation.Nonnull;
 import java.util.ArrayList;
@@ -12,11 +12,11 @@ import java.util.Map;
 
 class WhileImpl implements Evaluable {
 
-    private final HasVariables variables;
+    private final WithVariables variables;
     private final ExpressionImpl expression;
     private final List<Evaluable> evaluables = new ArrayList<>();
 
-    public WhileImpl(HasVariables variables, ExpressionImpl expression) {
+    public WhileImpl(WithVariables variables, ExpressionImpl expression) {
         this.variables = variables;
         this.expression = expression;
     }
