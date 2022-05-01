@@ -24,7 +24,7 @@ public class HandlerUtils {
     }
 
     public static void iterateHandlers(@Nonnull Element element, @Nonnull BuilderContext builderContext, @Nonnull Consumer<HandlerContext> handlerContextConsumer) {
-        final ActionContext actionContext = ActionContext.from(builderContext);
+        final ActionContext actionContext = ActionContext.actionContext(builderContext.evaluator(), builderContext.registrar());
         getComponentHandlers(element).stream()
                 .filter(DomUtils::hasName)
                 .forEach(e -> {
