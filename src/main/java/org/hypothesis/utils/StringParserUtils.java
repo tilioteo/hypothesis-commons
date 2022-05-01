@@ -99,7 +99,7 @@ public class StringParserUtils {
                         return null;
                     }
                 })
-                .orElse(null);
+                .orElse(value);
     }
 
     public static Boolean parseBoolean(String value) {
