@@ -12,6 +12,7 @@ import static java.util.Collections.emptyList;
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toMap;
 import static org.hypothesis.interfaces.dom.Constants.*;
+import static org.hypothesis.utils.PredicateUtils.alwaysTrue;
 
 public class DomUtils {
 
@@ -74,7 +75,7 @@ public class DomUtils {
     }
 
     public static Map<String, String> getPropertyValueMap(@Nonnull Element element) {
-        return filterByChildNameAndSubChildrenPredicateStream(element, PROPERTIES, child -> PROPERTY.equals(child.getName()))
+        return filterByChildNameAndSubChildrenPredicateStream(element, PROPERTIES, alwaysTrue())
                 .collect(toMap(Element::getName, el -> el.getAttribute(VALUE)));
     }
 
