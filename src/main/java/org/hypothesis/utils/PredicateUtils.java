@@ -2,6 +2,7 @@ package org.hypothesis.utils;
 
 import org.hypothesis.exception.NonInstantiableClassException;
 
+import javax.annotation.Nonnull;
 import java.util.function.Predicate;
 
 public class PredicateUtils {
@@ -16,6 +17,10 @@ public class PredicateUtils {
 
     public static <T> Predicate<T> alwaysFalse() {
         return t -> false;
+    }
+
+    public static <T> Predicate<T> not(@Nonnull Predicate<T> predicate) {
+        return predicate.negate();
     }
 
 }
