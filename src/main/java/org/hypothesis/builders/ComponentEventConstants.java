@@ -1,8 +1,8 @@
 package org.hypothesis.builders;
 
+import com.tilioteo.common.event.MouseEvents.ClickEvent;
+import com.tilioteo.common.event.TimekeepingComponentEvent;
 import org.hypothesis.interfaces.event.ComponentEventDataDescriptor;
-import org.hypothesis.ui.event.MouseEvents.ClickEvent;
-import org.hypothesis.ui.event.TimekeepingComponentEvent;
 
 import java.util.function.BiConsumer;
 
