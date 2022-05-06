@@ -56,8 +56,16 @@ public class DomUtils {
         return element.getAttribute(NAME);
     }
 
+    public static String getElementName(@Nonnull Element element) {
+        return element.getName();
+    }
+
     public static boolean hasName(@Nonnull Element element) {
         return isNotBlank(getName(element));
+    }
+
+    public static boolean hasElementName(@Nonnull Element element) {
+        return isNotBlank(element.getName());
     }
 
     public static String getValue(@Nonnull Element element) {

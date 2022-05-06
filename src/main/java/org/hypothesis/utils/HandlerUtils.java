@@ -15,7 +15,7 @@ import java.util.function.Consumer;
 import static org.hypothesis.interfaces.dom.Constants.HANDLERS;
 import static org.hypothesis.interfaces.handler.HandlerContext.handlerContext;
 import static org.hypothesis.utils.DomUtils.filterByChildNameAndSubChildrenPredicate;
-import static org.hypothesis.utils.DomUtils.getName;
+import static org.hypothesis.utils.DomUtils.getElementName;
 
 public class HandlerUtils {
 
@@ -26,11 +26,11 @@ public class HandlerUtils {
     public static void iterateHandlers(@Nonnull Element element, @Nonnull BuilderContext builderContext, @Nonnull Consumer<HandlerContext> handlerContextConsumer) {
         final ActionContext actionContext = ActionContext.actionContext(builderContext.evaluator(), builderContext.registrar());
         getComponentHandlers(element).stream()
-                .filter(DomUtils::hasName)
+                .filter(DomUtils::hasElementName)
                 .forEach(e -> {
                     final Action action = ActionBuilder.withContext(actionContext).createHandlerAction(e);
                     builderContext.registrar().registerAction(action);
-                    handlerContextConsumer.accept(handlerContext(e, getName(e), action));
+                    handlerContextConsumer.accept(handlerContext(e, getElementName(e), action));
                 });
     }
 
