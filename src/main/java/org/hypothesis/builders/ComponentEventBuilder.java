@@ -23,6 +23,8 @@ public class ComponentEventBuilder {
         this.component = component;
         this.typeName = typeName;
         this.action = action;
+        this.descriptor = (e, ce) -> {
+        };
     }
 
     public ComponentEventBuilder(@Nonnull Component component, @Nonnull String typeName, @Nonnull Action action, @Nonnull BiConsumer<? extends EventObject, ComponentEventDataDescriptor> descriptor) {
@@ -43,7 +45,7 @@ public class ComponentEventBuilder {
         return new ComponentEventImpl(this, eventObject, eventName);
     }
 
-    public ComponentEvent buildWith(@Nonnull EventObject eventObject, @Nonnull String eventName, BiConsumer<? extends EventObject, ComponentEventDataDescriptor> descriptor) {
+    public ComponentEvent buildWith(@Nonnull EventObject eventObject, @Nonnull String eventName, @Nonnull BiConsumer<? extends EventObject, ComponentEventDataDescriptor> descriptor) {
         return new ComponentEventImpl(this, eventObject, eventName, descriptor);
     }
 
