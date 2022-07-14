@@ -5,7 +5,7 @@
 	<groupId>org.hypothesis</groupId>
 	<artifactId>commons</artifactId>
 	<packaging>jar</packaging>
-	<version>1.6.0-SNAPSHOT9</version>
+	<version>1.6.0-SNAPSHOT10</version>
 	<name>Hypothesis Commons</name>
 
 	<properties>
